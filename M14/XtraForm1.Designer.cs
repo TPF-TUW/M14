@@ -577,6 +577,8 @@
             this.gvCustDes.Name = "gvCustDes";
             this.gvCustDes.OptionsBehavior.Editable = false;
             this.gvCustDes.OptionsBehavior.ReadOnly = true;
+            this.gvCustDes.OptionsView.EnableAppearanceEvenRow = true;
+            this.gvCustDes.OptionsView.EnableAppearanceOddRow = true;
             this.gvCustDes.OptionsView.ShowGroupPanel = false;
             this.gvCustDes.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gvGarment_RowCellClick);
             this.gvCustDes.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gvCustDes_RowStyle);
