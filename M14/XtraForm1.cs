@@ -91,26 +91,7 @@ namespace M14
 
         private void gvGarment_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-            lblStatus.Text = "* Edit Destination";
-            lblStatus.ForeColor = Color.Red;
-            chkShow = true;
-            txeID.Text = gvCustDes.GetFocusedRowCellValue("ID").ToString();
-            slueCode.EditValue = gvCustDes.GetFocusedRowCellValue("CUSID").ToString();
-            txeCustCode.Text = gvCustDes.GetFocusedRowCellValue("Code").ToString();
-            txeDes.Text = gvCustDes.GetFocusedRowCellValue("DestinationCode").ToString();
-            txeShip.Text = gvCustDes.GetFocusedRowCellValue("ShipToName").ToString();
-            txeAddr1.Text = gvCustDes.GetFocusedRowCellValue("ShipToAddress1").ToString();
-            txeAddr2.Text = gvCustDes.GetFocusedRowCellValue("ShipToAddress2").ToString();
-            txeAddr3.Text = gvCustDes.GetFocusedRowCellValue("ShipToAddress3").ToString();
-            txeCountry.Text = gvCustDes.GetFocusedRowCellValue("Country").ToString();
-            txePostCode.Text = gvCustDes.GetFocusedRowCellValue("PostCode").ToString();
-            txeTelNo.Text = gvCustDes.GetFocusedRowCellValue("TelephoneNo").ToString();
-            txeFaxNo.Text = gvCustDes.GetFocusedRowCellValue("FaxNo").ToString();
-
-            txeCREATE.Text = gvCustDes.GetFocusedRowCellValue("CreatedBy").ToString();
-            txeCDATE.Text = gvCustDes.GetFocusedRowCellValue("CreatedDate").ToString();
-            txeUPDATE.Text = gvCustDes.GetFocusedRowCellValue("UpdatedBy").ToString();
-            txeUDATE.Text = gvCustDes.GetFocusedRowCellValue("UpdatedDate").ToString();
+            
         }
 
         private void slueCode_EditValueChanged(object sender, EventArgs e)
@@ -381,5 +362,28 @@ namespace M14
             System.Diagnostics.Process.Start(pathFile);
         }
 
+        private void gvCustDes_RowClick(object sender, RowClickEventArgs e)
+        {
+            lblStatus.Text = "* Edit Destination";
+            lblStatus.ForeColor = Color.Red;
+            chkShow = true;
+            txeID.Text = gvCustDes.GetFocusedRowCellValue("ID").ToString();
+            slueCode.EditValue = gvCustDes.GetFocusedRowCellValue("CUSID").ToString();
+            txeCustCode.Text = gvCustDes.GetFocusedRowCellValue("Code").ToString();
+            txeDes.Text = gvCustDes.GetFocusedRowCellValue("DestinationCode").ToString();
+            txeShip.Text = gvCustDes.GetFocusedRowCellValue("ShipToName").ToString();
+            txeAddr1.Text = gvCustDes.GetFocusedRowCellValue("ShipToAddress1").ToString();
+            txeAddr2.Text = gvCustDes.GetFocusedRowCellValue("ShipToAddress2").ToString();
+            txeAddr3.Text = gvCustDes.GetFocusedRowCellValue("ShipToAddress3").ToString();
+            txeCountry.Text = gvCustDes.GetFocusedRowCellValue("Country").ToString();
+            txePostCode.Text = gvCustDes.GetFocusedRowCellValue("PostCode").ToString();
+            txeTelNo.Text = gvCustDes.GetFocusedRowCellValue("TelephoneNo").ToString();
+            txeFaxNo.Text = gvCustDes.GetFocusedRowCellValue("FaxNo").ToString();
+
+            txeCREATE.Text = gvCustDes.GetFocusedRowCellValue("CreatedBy").ToString();
+            txeCDATE.Text = gvCustDes.GetFocusedRowCellValue("CreatedDate").ToString();
+            txeUPDATE.Text = gvCustDes.GetFocusedRowCellValue("UpdatedBy").ToString();
+            txeUDATE.Text = gvCustDes.GetFocusedRowCellValue("UpdatedDate").ToString();
+        }
     }
 }
