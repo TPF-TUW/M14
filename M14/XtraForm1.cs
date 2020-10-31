@@ -385,5 +385,15 @@ namespace M14
             txeUPDATE.Text = gvCustDes.GetFocusedRowCellValue("UpdatedBy").ToString();
             txeUDATE.Text = gvCustDes.GetFocusedRowCellValue("UpdatedDate").ToString();
         }
+
+        private void bbiPrintPreview_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gcCustDes.ShowPrintPreview();
+        }
+
+        private void bbiPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gcCustDes.Print();
+        }
     }
 }
