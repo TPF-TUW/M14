@@ -356,6 +356,7 @@ namespace M14
 
         private void gvCustDes_RowClick(object sender, RowClickEventArgs e)
         {
+            if (gvCustDes.IsFilterRow(e.RowHandle)) return;
             lblStatus.Text = "* Edit Destination";
             lblStatus.ForeColor = Color.Red;
             chkShow = true;
