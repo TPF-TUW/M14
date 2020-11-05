@@ -168,17 +168,7 @@ namespace M14
 
         private void txeDes_LostFocus(object sender, EventArgs e)
         {
-            txeDes.Text = txeDes.Text.ToUpper().Trim();
-            bool chkDup = chkDuplicate();
-            if (chkDup == false)
-            {
-                txeDes.Text = "";
-                txeDes.Focus();
-            }
-            else
-            {
-                txeShip.Focus();
-            } 
+            
         }
 
         private void txeShip_KeyDown(object sender, KeyEventArgs e)
@@ -279,9 +269,9 @@ namespace M14
                         strUPDATE = txeUPDATE.Text.Trim();
                     }
 
-                   bool chkGMP = chkDuplicate();
-                   if (chkGMP == true)
-                   {
+                    bool chkGMP = chkDuplicate();
+                    if (chkGMP == true)
+                    {
                         if (lblStatus.Text == "* Add Destination")
                         {
                             sbSQL.Append("  INSERT INTO CustomerAddress(OIDCUST, Code, ShipToName, ShipToAddress1, ShipToAddress2, ShipToAddress3, Country, PostCode, TelephoneNo, FaxNo, CreatedBy, CreatedDate, UpdatedBy, UpdatedDate) ");
@@ -316,6 +306,12 @@ namespace M14
                         }
                     }
                 }
+                else
+                {
+                    txeDes.Text = "";
+                    txeDes.Focus();
+                    FUNC.msgWarning("Duplicate destination code. !! Please Change.");
+                }
             }
         }
 
@@ -332,8 +328,6 @@ namespace M14
                     sbSQL.Append("SELECT TOP(1) Code FROM CustomerAddress WHERE (Code = N'" + txeDes.Text.Trim() + "') ");
                     if (new DBQuery(sbSQL).getString() != "")
                     {
-                        FUNC.msgWarning("Duplicate destination code. !! Please Change.");
-                        txeDes.Text = "";
                         chkDup = false;
                     }
                 }
@@ -346,8 +340,6 @@ namespace M14
                     string strCHK = new DBQuery(sbSQL).getString();
                     if (strCHK != "" && strCHK != txeID.Text.Trim())
                     {
-                        FUNC.msgWarning("Duplicate destination code. !! Please Change.");
-                        txeDes.Text = "";
                         chkDup = false;
                     }
                 }
@@ -394,6 +386,25 @@ namespace M14
         private void bbiPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             gcCustDes.Print();
+        }
+
+        private void txeDes_Leave(object sender, EventArgs e)
+        {
+            if (txeDes.Text.Trim() != "")
+            {
+                txeDes.Text = txeDes.Text.ToUpper().Trim();
+                bool chkDup = chkDuplicate();
+                if (chkDup == false)
+                {
+                    txeDes.Text = "";
+                    txeDes.Focus();
+                    FUNC.msgWarning("Duplicate destination code. !! Please Change.");
+                }
+                else
+                {
+                    txeShip.Focus();
+                }
+            }
         }
     }
 }

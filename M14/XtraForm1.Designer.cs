@@ -528,6 +528,7 @@
             this.txeDes.StyleController = this.layoutControl1;
             this.txeDes.TabIndex = 1;
             this.txeDes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txeDes_KeyDown);
+            this.txeDes.Leave += new System.EventHandler(this.txeDes_Leave);
             this.txeDes.LostFocus += new System.EventHandler(this.txeDes_LostFocus);
             // 
             // lblStatus
