@@ -322,10 +322,17 @@ namespace M14
             if (txeDes.Text != "")
             {
                 txeDes.Text = txeDes.Text.Trim();
+
+                string strCUSID = "";
+                if (slueCode.Text.Trim() != "")
+                {
+                    strCUSID = slueCode.EditValue.ToString();
+                }
+
                 if (txeDes.Text.Trim() != "" && lblStatus.Text == "* Add Destination")
                 {
                     StringBuilder sbSQL = new StringBuilder();
-                    sbSQL.Append("SELECT TOP(1) Code FROM CustomerAddress WHERE (Code = N'" + txeDes.Text.Trim() + "') ");
+                    sbSQL.Append("SELECT TOP(1) Code FROM CustomerAddress WHERE (OIDCUST = '" + strCUSID + "') AND (Code = N'" + txeDes.Text.Trim() + "') ");
                     if (new DBQuery(sbSQL).getString() != "")
                     {
                         chkDup = false;
@@ -336,7 +343,7 @@ namespace M14
                     StringBuilder sbSQL = new StringBuilder();
                     sbSQL.Append("SELECT TOP(1) OIDCUSTAdd ");
                     sbSQL.Append("FROM CustomerAddress ");
-                    sbSQL.Append("WHERE (Code = N'" + txeDes.Text.Trim() + "') ");
+                    sbSQL.Append("WHERE (OIDCUST = '" + strCUSID + "') AND (Code = N'" + txeDes.Text.Trim() + "') ");
                     string strCHK = new DBQuery(sbSQL).getString();
                     if (strCHK != "" && strCHK != txeID.Text.Trim())
                     {
