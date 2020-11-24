@@ -12,11 +12,11 @@ using DevExpress.XtraPrinting;
 
 namespace M14
 {
-    public partial class XtraForm1 : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class M14 : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private Functionality.Function FUNC = new Functionality.Function();
         bool chkShow = false;
-        public XtraForm1()
+        public M14()
         {
             InitializeComponent();
             UserLookAndFeel.Default.StyleChanged += MyStyleChanged;
